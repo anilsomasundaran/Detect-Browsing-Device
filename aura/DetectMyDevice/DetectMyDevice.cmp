@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	<lightning:card title="Detect Your Device" class="slds-m-around_large">
+        <aura:set attribute="actions">
+            <lightning:button label="Browser Info" onclick="{!c.browse}" />
+        </aura:set>
+        
+        <div class="slds-p-horizontal_medium">
+        	<aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                <p>You are using Desktop <lightning:icon iconName="utility:desktop" alternativeText="Desktop!" variant="error"/> Browser </p>
+            </aura:if>
+            <aura:if isTrue="{!$Browser.formFactor == 'PHONE' || $Browser.isPhone}">
+                <p>You are using Desktop <lightning:icon iconName="utility:phone_portrait" alternativeText="Phone!" variant="error"/> Browser </p>
+            </aura:if>
+            <aura:if isTrue="{!$Browser.formFactor == 'TABLET ' || $Browser.isTablet}">
+                <p>You are using Tablet <lightning:icon iconName="utility:tablet_portrait" alternativeText="Tablet!" variant="error"/> Browser </p>
+            </aura:if>
+            <aura:if isTrue="{!$Browser.isIPad || $Browser.isTablet}">
+                <p>You are using IPad <lightning:icon iconName="utility:tablet_portrait" alternativeText="Tablet!" variant="error"/> Browser </p>
+            </aura:if>
+             <aura:if isTrue="{!$Browser.isIPhone}">
+                <p>You are using IPhone <lightning:icon iconName="utility:phone_portrait" alternativeText="Tablet!" variant="error"/> Browser </p>
+            </aura:if>
+            <aura:if isTrue="{!$Browser.isAndroid || $Browser.isPhone}">
+                <p>You are using Android phone <lightning:icon iconName="utility:phone_portrait" alternativeText="Tablet!" variant="error"/> Browser </p>
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>
